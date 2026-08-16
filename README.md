@@ -1,4 +1,4 @@
-# dsh-reading-mode
+# dsh-reading-assistant-plugin
 
 DeepSeek Harness 读书模式插件：让大肥鱼成为你的阅读助手！在会话里打开一个专注的阅读工作台，支持PDF/Markdown 阅读器、阅读助手、截图提问（视觉模型识别 → 主模型解答）、页码归属与历史索引、阅读进度记忆。
 
@@ -30,12 +30,10 @@ dsh plugin --profile web add link:../dsh-reading-assistant-plugin
 
 `dsh plugin` 在 profile 目录里运行 pnpm，并自动把声明了 `dsh.bundle` 的依赖纳入 `dsh.profile.bundles` 层列表。本包没有 `prepare` 构建脚本，pnpm 无需额外 `allowBuilds` 配置。安装后**重启 dsh**（宿主路由与设置命名空间在启动时注册），刷新页面即可。
 
-> 注意：行名（包名）是 `dsh-reading-mode`，与仓库名 `dsh-reading-assistant-plugin` 不同——`dsh plugin` 按安装后的真实包名 reconcile，卸载/禁用请用包名（见下）。
-
 ## 卸载 / 禁用
 
 ```sh
-dsh plugin --profile web remove dsh-reading-mode
+dsh plugin --profile web remove dsh-reading-assistant-plugin
 ```
 
 或者只禁用（保留包）：在自己的 `cordis.patch.yml` 里加：
@@ -49,7 +47,7 @@ dsh plugin --profile web remove dsh-reading-mode
 
 - **视觉路由**（截图提问）：部署的 `llm` 提供方里至少有一个 `inputModalities` 含 `image` 的模型（例如 qianwen VL 系列），插件自动发现第一个可用者。没有则截图提问降级为纯文字提问。
 - **主模型**：不要求视觉能力——截图永远由视觉模型识别成文字后再交给主模型。
-- 客户端无需构建：`lib/client.js` 是手写 IIFE 工厂（`window.__ModuleLoader__.load`），由宿主 `/plugins/reading-mode/client.js` 路由直接服务。
+- 客户端无需构建：`lib/client.js` 是手写 IIFE 工厂（`window.__ModuleLoader__.load`），由宿主 `/plugins/dsh-reading-assistant-plugin/client.js` 路由直接服务。
 
 ## 包结构
 

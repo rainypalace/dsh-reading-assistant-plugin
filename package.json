@@ -1,5 +1,5 @@
 {
-  "name": "dsh-reading-mode",
+  "name": "dsh-reading-assistant-plugin",
   "version": "1.7.7",
   "description": "DeepSeek Harness 读书模式插件：PDF/Markdown 阅读器 + 助手立绘 + 截图提问（视觉模型识别 → 主模型解答）+ 页码归属/历史索引/阅读进度记忆",
   "keywords": [

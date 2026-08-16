@@ -4,12 +4,12 @@
 # `dsh plugin` 自动纳入 dsh.profile.bundles 层列表（按依赖顺序叠加，
 # 位于用户自己的 cordis.patch.yml 之下）。
 #
-# 行名必须是裸包名 dsh-reading-mode（客户端 window.__ModuleLoader__.load
-# 的 id 与 /plugins/<id>/client.js 路由均以此为准）。
+# 行名必须是裸包名 dsh-reading-assistant-plugin（客户端
+# window.__ModuleLoader__.load 的 id 与 /plugins/<id>/client.js 路由均以此为准）。
 #
 # 用户可在自己的 cordis.patch.yml 里按 id 覆盖或禁用本行：
 #   - id: reading-mode
 #     disabled: true
 - insert:
     - id: reading-mode
-      name: 'dsh-reading-mode'
+      name: 'dsh-reading-assistant-plugin'
