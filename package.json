@@ -1,0 +1,53 @@
+{
+  "name": "dsh-reading-mode",
+  "version": "1.7.7",
+  "description": "DeepSeek Harness 读书模式插件：PDF/Markdown 阅读器 + 助手立绘 + 截图提问（视觉模型识别 → 主模型解答）+ 页码归属/历史索引/阅读进度记忆",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "reader",
+    "pdf",
+    "markdown",
+    "vision"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "assets/pdfjs/**",
+    "assets/avatar.webp",
+    "assets/avatar2.webp",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [],
+      "immediately": false
+    }
+  }
+}

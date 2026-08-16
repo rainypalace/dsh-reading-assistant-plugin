@@ -1,0 +1,15 @@
+# dsh-reading-mode bundle 自带 patch 层。
+#
+# 该文件由 package.json 的 dsh.bundle.patch 声明，随包安装后由
+# `dsh plugin` 自动纳入 dsh.profile.bundles 层列表（按依赖顺序叠加，
+# 位于用户自己的 cordis.patch.yml 之下）。
+#
+# 行名必须是裸包名 dsh-reading-mode（客户端 window.__ModuleLoader__.load
+# 的 id 与 /plugins/<id>/client.js 路由均以此为准）。
+#
+# 用户可在自己的 cordis.patch.yml 里按 id 覆盖或禁用本行：
+#   - id: reading-mode
+#     disabled: true
+- insert:
+    - id: reading-mode
+      name: 'dsh-reading-mode'
