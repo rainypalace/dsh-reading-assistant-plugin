@@ -13,15 +13,24 @@ DeepSeek Harness 读书模式插件：让大肥鱼成为你的阅读助手！在
 - **阅读进度**：按书名+文件大小记忆页码（localStorage），重开文档精确恢复（两段式精确跳页）。
 - **设置**：立绘大小/对话面板宽度/提示胶囊/识别结果展开/对话字号/渲染器选择（settings.yaml 持久化、热生效）。
 
-## 安装
+## 安装（从 Git 仓库）
+
+本插件未发布到 npm，请直接从 GitHub 仓库安装：
 
 ```sh
-dsh plugin --profile web add dsh-reading-mode   # 公开 npm
-# 或 git 安装：
-dsh plugin --profile web add github:<user>/dsh-reading-mode
+dsh plugin --profile web add github:rainypalace/dsh-reading-assistant-plugin
 ```
 
-`dsh plugin` 在 profile 目录里运行 pnpm，并自动把声明了 `dsh.bundle` 的依赖纳入 `dsh.profile.bundles` 层列表。安装后**重启 dsh**（宿主路由与设置命名空间在启动时注册），刷新页面即可。
+也可以先克隆、再用本地链接安装（便于本地修改调试）：
+
+```sh
+git clone https://github.com/rainypalace/dsh-reading-assistant-plugin.git
+dsh plugin --profile web add link:../dsh-reading-assistant-plugin
+```
+
+`dsh plugin` 在 profile 目录里运行 pnpm，并自动把声明了 `dsh.bundle` 的依赖纳入 `dsh.profile.bundles` 层列表。本包没有 `prepare` 构建脚本，pnpm 无需额外 `allowBuilds` 配置。安装后**重启 dsh**（宿主路由与设置命名空间在启动时注册），刷新页面即可。
+
+> 注意：行名（包名）是 `dsh-reading-mode`，与仓库名 `dsh-reading-assistant-plugin` 不同——`dsh plugin` 按安装后的真实包名 reconcile，卸载/禁用请用包名（见下）。
 
 ## 卸载 / 禁用
 
@@ -56,8 +65,8 @@ tools/              开发辅助脚本（立绘处理/注入、冒烟与压力�
 ## 开发
 
 - 改客户端：编辑 `lib/client.js` 后刷新页面即可（无需重启 dsh）；改宿主需重启。
-- 部署到本地安装目录：见 `tools/` 与仓库提交历史中的部署说明。
-- 版本节奏见仓库根目录的进度文档（跨会话存档）。
+- 部署到本地安装目录：见 `tools/` 与 Git 提交历史。
+- 版本节奏见 Git 提交历史与 tag。
 
 ## License
 
